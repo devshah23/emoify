@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emo Music Player</title>
+    <link rel="stylesheet" href="main_styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://db.onlinewebfonts.com/c/961a181da27e7cbc072ec2fb5bbfe2a9?family=Circular+Std+Bold"
+      rel="stylesheet" />
+    <script type="text/javascript" src="/eel.js"></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="container">
+        <div class="container1">
+          <img src="logo.jpeg" alt="Logo" class="header__logo" />
+          <h1 class="header__title">Emoify</h1>
+        </div>
+        <div>
+          <h2 class="container2">An Emotion Based Music Player</h2>
+        </div>
+      </div>
+    </header>
+    <!-- Content And Queue Section -->
+    <div class="contentAndQueue">
+      <div class="content"></div>
+      <script src="main_js.js"></script>
+      <!-- Queue and Mode -->
+      <div class="queueAndMode">
+        <!-- Queue -->
+        <div class="queueContainer">
+          <div class="queueContainerHeader">
+            <h3>Queue</h3>
+            <input type="button" id="next" onclick="playNextSong()" />
+          </div>
+
+          <hr style="margin-bottom: 10px" />
+          <div class="queue"></div>
+        </div>
+        <!-- Mode -->
+        <div class="modeContainer">
+          <h3>Mode</h3>
+          <hr />
+          <!-- Queue Mode -->
+          <div class="mode">
+            <input
+              type="radio"
+              name="mode"
+              id="queueMode"
+              value="1"
+              checked="checked"
+              onclick="setMode(this)" />
+            <label for="queueMode">Queue Mode</label>
+          </div>
+          <!-- Emotion Mode -->
+          <div class="mode">
+            <input
+              type="radio"
+              name="mode"
+              id="emotionMode"
+              value="2"
+              checked="checked"
+              onclick="setMode(this)" />
+            <label for="emotionMode">Emotion Mode</label>
+          </div>
+          <!-- Random Mode -->
+          <div class="mode">
+            <input
+              type="radio"
+              name="mode"
+              id="randomMode"
+              value="3"
+              onclick="setMode(this)" />
+            <label for="randomMode">Random Mode</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Audio Player Section -->
+    <div class="audioPlayer">
+      <div class="audioPlayerHeader">
+        <label id="sname"></label>
+        <span>-</span>
+        <label id="emotion"></label>
+        <!-- <label id="emoji"></label> -->
+      </div>
+      <div class="audioPlayerBody">
+        <audio controls id="main_slider">
+          <source id="songSource" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <script>
+        document.getElementById("main_slider").onended = function () {
+          if (mode == 1) {
+            playNextSong();
+          } else if (mode == 2) {
+            getEmotionAndPlaySong();
+          } else {
+            playRandomSong();
+          }
+        };
+      </script>
+    </div>
+  </body>
+</html>
+<!-- 
+  <script>
+        document.getElementById("main_slider").onended = function () {
+          if (mode == 1) {
+            playNextSong();
+          } else if (mode == 2) {
+            getEmotionAndPlaySong();
+          } else {
+            playRandomSong();
+          }
+        };
+        
+      </script>
+     -->

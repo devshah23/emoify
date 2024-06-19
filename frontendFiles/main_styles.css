@@ -1,0 +1,410 @@
+* {
+  margin: -2px;
+  /* padding: 4px; */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e1e1e;
+}
+
+.header {
+  background: linear-gradient(to right, #0f1012, #000);
+  color: #e4fdc2;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container1 {
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  padding-left: 30px;
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  align-items: center;
+}
+.container2 {
+  font-size: 1.5em;
+
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+  padding-right: 30px;
+}
+
+.header__title {
+  font-size: 2em;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.header__title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header__logo {
+  width: 3em;
+  height: auto;
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.song {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.song:hover {
+  transform: scale(1.05);
+}
+
+.pic {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.play {
+  position: absolute;
+  bottom: 10px;
+  right: 60px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background: url("play.png") center/contain no-repeat;
+  background-color: white;
+  border: 2px solid transparent;
+  z-index: 2;
+}
+
+.add {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background: url("add.png") center/cover no-repeat;
+  background-color: white;
+  border: 1px solid white;
+  z-index: 1;
+}
+
+.play:hover,
+.add:hover {
+  transform: scale(1.1); /* Scale up by 10% on hover */
+}
+
+.play::before,
+.add::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* 
+.play::before {
+  content: url("play.png");
+}
+
+.add::before {
+  content: url("add.png");
+} */
+
+.data {
+  padding: 15px;
+}
+
+h5 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Circular", "Roboto", sans-serif;
+  color: #333;
+}
+
+.data p {
+  margin-top: 5px;
+  font-size: 14px;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Circular", "Roboto", sans-serif;
+  color: #666;
+}
+
+.tag {
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+  color: #000;
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+.contentAndQueue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: gray;
+}
+.queueAndMode {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: initial;
+}
+.modeContainer {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5%;
+}
+.mode {
+  padding: 5px;
+  display: flex;
+  justify-content: start;
+}
+
+.modeContainer h3 {
+  color: rgb(1 1 1 / 97%);
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.mode label {
+  color: #56204f;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+}
+.mode input[type="radio"] {
+  width: 25px;
+  accent-color: black;
+}
+
+.queueContainer {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5%;
+}
+.queueContainerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.queueContainer h3 {
+  color: #0b0a0a;
+  padding: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+#next {
+  border-color: white;
+  background: transparent url("next.png");
+  /*mix-blend-mode: multiply;*/
+  background-size: cover;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+  margin-top: 0px;
+  z-index: 2;
+}
+#next:focus {
+  outline: none;
+}
+#next:hover {
+  box-shadow: 0px 0px 3px 3px white;
+  border-color: black;
+  background-color: rgba(1, 1, 1);
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  z-index: 2;
+}
+
+.queueElement {
+  color: #56204f;
+  font-size: 1.2em;
+  padding: 10px;
+  text-align: center;
+  font-family: "Circular", "Roboto", sans-serif;
+  font-weight: bold;
+}
+.queueElement hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* 
+audio {
+  width: 100vh;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+} */
+
+.audioPlayer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #484848; /* Dark background color */
+  color: #83ffab;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top: 5px solid white;
+  z-index: 1000; /* Ensure it appears above other content */
+  color: lightcyan;
+}
+
+.audioPlayerHeader {
+  font-family: "Circular", "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+.audioPlayerHeader label {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.audioPlayerBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+audio {
+  background-color: #9f9f9f;
+  width: 95%;
+  border: 1px black;
+  border-radius: 26px;
+}
+
+/* Change background color of audio controls */
+audio::-webkit-media-controls-panel {
+  background-color: #383535; /* Dark background color */
+}
+
+/* Additional styling for play button */
+audio::-webkit-media-controls-play-button {
+  color: white; /* Play button color */
+  background-color: #5f5f5f; /* Play button background color */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Round play button */
+  padding: 12px; /* Increase padding for larger button */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for play button */
+audio::-webkit-media-controls-play-button:hover {
+  background-color: #6f6f6f; /* Darker color on hover */
+}
+
+/* Additional styling for volume slider container */
+audio::-webkit-media-controls-volume-slider-container {
+  margin-right: 10px; /* Adjust spacing between volume slider and play button */
+}
+
+/* Styling for volume slider */
+audio::-webkit-media-controls-volume-slider {
+  background-color: #5f5f5f; /* Volume slider background color */
+  border-radius: 5px; /* Round volume slider track */
+}
+
+/* Styling for volume slider thumb */
+audio::-webkit-media-controls-volume-slider::-webkit-media-slider-thumb {
+  background-color: #fff; /* Volume slider thumb color */
+  border-radius: 50%; /* Round volume slider thumb */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for volume slider thumb */
+audio::-webkit-media-controls-volume-slider::-webkit-media-slider-thumb:hover {
+  background-color: #ccc; /* Lighter color on hover */
+}
+/* Highlight the text of the current playback time */
+audio::-webkit-media-controls-current-time-display {
+  color: #fff; /* Text color */
+  font-weight: bold; /* Font weight */
+  background-color: #5f5f5f; /* Background color */
+  padding: 4px; /* Add padding for better readability */
+  border-radius: 5px; /* Round corners */
+}
+/* Style for the default audio time separator */
+
+/* Highlight the text of the total playback time */
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff; /* Text color */
+  font-weight: bold; /* Font weight */
+  background-color: #5f5f5f; /* Background color */
+  padding: 4px; /* Add padding for better readability */
+  border-radius: 5px; /* Round corners */
+}
+/* Hide the default audio time separator */
+audio::-webkit-media-controls-time-remaining-display::before {
+  content: ""; /* Hide the default separator */
+}
+
+#emoji{
+	width: 75px;
+	height: 75px;
+	display: inline-grid;
+	border-color: rgba(1,1,1,0.5);
+	background:transparent url("next.png");
+	/*mix-blend-mode: multiply;*/
+	background-size: cover;
+	border-bottom-left-radius: 50%;
+	border-top-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-top-right-radius: 50%;
+}
