@@ -97,14 +97,9 @@ count=0
 @eel.expose
 def getEmotion():
    
-    count=0
+    count=1
     while True:
-        count=10
-        
-        
-        if args.update:
-            break
-        elif count==10:
+        if count:
             detect_face()
             fishface.read("model.xml")
             return identify_emotions()
