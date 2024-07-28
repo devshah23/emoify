@@ -3,8 +3,6 @@ import argparse
 import time
 import os
 
-import glob
-import random
 import eel
 
 
@@ -110,7 +108,7 @@ def getEmotion():
             detect_face()
             fishface.read("model.xml")
             return identify_emotions()
-            break
+            
 
 
 eel.start('main.html')
